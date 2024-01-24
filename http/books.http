@@ -1,0 +1,30 @@
+### Liste des livres
+GET http://localhost:8000/api/books
+
+### Détail d'un livre
+GET http://localhost:8000/api/books/17
+
+### Suppression d'un livre
+DELETE http://localhost:8000/api/books/3
+
+### Ajout d'un livre
+POST http://localhost:8000/api/books
+content-type: application/json
+
+{
+    "title": "doraaaaaaaa l'exploratrice",
+    "summary": "Sed ut perspiciatis unde omnis iste natus",   
+    "release_date": 2010,
+    "picture": "aaa.jpg",
+    "created_at": "now",
+    "category": 6
+}
+
+### Modification d'un livre
+PUT http://localhost:8000/api/books/20
+content-type: application/json
+
+{
+    "title": "aaaaaanbbbbqfqfqzgqz",
+    "updated_at": "now"
+}

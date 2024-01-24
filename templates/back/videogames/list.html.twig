@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AllinOne - Listing des Jeux video{% endblock %}
+
+{% block body %}
+
+<h2>Liste des Jeux video</h2>
+<div class="d-flex justify-content-end">
+  <a class="btn btn-primary" href="{{ path('backoffice_videogames_add') }}">Ajouter</a>
+</div>
+  <table class="table table-hover mt-4">
+  <thead>
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Titre</th>
+          <th scope="col">Date de sortie</th>
+          <th scope="col">Plateforme</th>
+          <th scope="col"></th>
+      </tr>
+  </thead>
+<tbody>
+  {% for videogame in videogames|reverse %}
+      <tr>
+      <th scope="row">{{ videogame.id }}</th>
+      <td>{{videogame.title }}</td>
+      <td>{{videogame.releaseDate }}</td>
+      <td>{% for platform in videogame.platforms %}
+            {{ platform.name }}{% if not loop.last %}, {% endif %}
+          {% endfor %}
+      </td>
+      <td class="text-end">
+          <a href="{{ path('backoffice_videogames_update', {"id": videogame.id}) }}" class="btn btn-sm btn-warning">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifier
+          </a>
+          <a href="{{ path('backoffice_videogames_delete', {"id": videogame.id}) }}" class="btn btn-sm btn-danger mediaDelete">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Supprimer
+          </a>
+      </td>
+      </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>        
+
+{% endblock %}

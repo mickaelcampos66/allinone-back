@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mise à jour utilisateur{% endblock %}
+
+{% block body %}
+<h1>Modification d'un utilisateur</h1>
+    {{ form_start(form) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.password) }}
+        {{ form_row(form.username) }}
+        {{ form_row(form.roles) }}
+    <div class="text-center">
+        <button class="btn btn-primary">Envoyer</button>
+    </div>
+{{ form_end(form) }}
+{% endblock %}

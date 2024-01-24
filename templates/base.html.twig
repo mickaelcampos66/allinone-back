@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="fr">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <!-- Bootstrap icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <!-- Our custom CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        <link rel="icon" href="{{ asset('assets/images/culture.png') }}">
+
+        <title>
+            {% block title %}
+                Back Office AllinOne
+            {% endblock %}
+        </title>
+    </head>
+
+    <body>
+        {% block nav %}
+        <!-- Nav -->
+            <nav class="navbar navbar-expand-xl ">
+                <div class="container-fluid ">
+                    <a class="navbar-brand logo" href="{{ path('app_backoffice')}}">AllinOne</a>
+                    <button class="navbar-toggler navbar-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon "></span>
+                    </button>
+                    {# Si l'utilisateur n'est pas connecté il ne peut pas voir les categories dans la barre de navigation #}
+                    {% if is_granted('IS_AUTHENTICATED_FULLY')%}
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-between align-items-center ">
+                            <li class="nav-item">
+                                <a class="nav-link {{ app.request.get('_route') == 'app_backoffice' ? 'active' }}" aria-current="page" href="{{ path('app_backoffice')}}">Accueil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ app.request.get('_route') == 'backoffice_movies_list' ? 'active' }}" href="{{ path('backoffice_movies_list')}}">Films</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ app.request.get('_route') == 'backoffice_shows_list' ? 'active' }}" href="{{ path('backoffice_shows_list')}}">Series</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ app.request.get('_route') == 'backoffice_animes_list' ? 'active' }}" href="{{ path('backoffice_animes_list')}}">Anime</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ app.request.get('_route') == 'backoffice_mangas_list' ? 'active' }}" href="{{ path('backoffice_mangas_list')}}">Mangas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ app.request.get('_route') == 'backoffice_videogames_list' ? 'active' }}" href="{{ path('backoffice_videogames_list')}}">JV</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ app.request.get('_route') == 'backoffice_books_list' ? 'active' }}" href="{{ path('backoffice_books_list')}}">Livres</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ app.request.get('_route') == 'backoffice_actors_list' ? 'active' }}" href="{{ path('backoffice_actors_list')}}">Acteurs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ app.request.get('_route') == 'backoffice_characters_list' ? 'active' }}" href="{{ path('backoffice_characters_list')}}">Personnages</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ app.request.get('_route') == 'backoffice_authors_list' ? 'active' }}" href="{{ path('backoffice_authors_list')}}">Auteurs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ app.request.get('_route') == 'backoffice_seasons_list' ? 'active' }}" href="{{ path('backoffice_seasons_list')}}">Saisons</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ app.request.get('_route') == 'backoffice_platforms_list' ? 'active' }}" href="{{ path('backoffice_platforms_list')}}">Plateformes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ app.request.get('_route') == 'backoffice_genres_list' ? 'active' }}" href="{{ path('backoffice_genres_list')}}">Genres</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ app.request.get('_route') == 'backoffice_reviews_list' ? 'active' }}" href="{{ path('backoffice_reviews_list')}}">Commentaires</a>
+                            </li>
+                                {# Si le nom de l'utilisateur est admin, on apffiche la gestion des utilisateurs#}
+                                {% if (app.user.username is same as 'admin') %}
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ app.request.get('_route') == 'backoffice_users_list' ? 'active' }}" href="{{ path('backoffice_users_list') }}">Utilisateurs</a>
+                                    </li>
+                                {% endif %}
+
+                                {# Le render permet d'aller récuperer directement dans le controller la methode qui va renvoyer le formulaire #}
+                            {{ render(controller('App\\Controller\\Back\\SearchAdminController::searchBar')) }}
+
+                            {% endif %}
+                        </ul>
+                        {# Si l'utilisateur n'a pas le statut authentifié l'affichage de la barre de navigation du profil n'apparait pas#}
+                        {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+                        {% else %}
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                                        <span>{{app.user.username}}</span>
+                                        <i class="bi bi-person-square"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="https://allinone-oclock.vercel.app" >Front-office</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </nav>
+        {% endblock %}
+        <div class="container bg-lighttt pt-5">
+            <div class="row mb-2">
+                <div class="col">
+
+                    {# read and display all flash messages #}
+                    {% for label, messages in app.flashes %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ label }}" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+
+                    {% block body %}{# C'est ici qu'on va coder nos vue #}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+        <!-- Optional JavaScript; choose one of 
+                the two! -->
+            <script src="{{ asset('assets/js/app.js') }}"></script>
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+        -->
+    
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AllinOne - Recherche{% endblock %}
+
+{% block body %}
+
+<div class="container mt-4">
+<h1 class="mb-4">Résultats de la Recherche</h1>
+
+{% if results is not empty %}
+<div class="row">
+    {% for result in results %}
+        <div class="col-md-4 col-lg-2 mb-4">
+                <div class="card">
+                {% if result.picture is defined %}
+                    <img src="{{ asset('' ~ result.picture) }}" class="card-img-top" alt="{{ result.title }}">
+                {% else %}
+                    <img src="{{ asset('assets/images/default_image.jpg') }}" class="card-img-top" alt="Image par défaut">
+                {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ result.title }}</h5>
+                        <p class="card-text">Auteur(s): {% for author in result.authors %}{{ author.fullname }} {% endfor %}</p>
+                        <a href="{{ path('backoffice_media_update', {"id": result.id}) }}" class="btn btn-primary">Fiche</a>
+                    </div>
+                </div>
+            
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% else %}
+    <p>Aucun résultat trouvé.</p>
+{% endif %}
+</div>
+
+
+{% endblock %}

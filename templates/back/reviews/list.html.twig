@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AllinOne - Listing des commentaires{% endblock %}
+
+{% block body %}
+
+<h2>Liste des commentaires</h2>
+    
+    <table class="table table-hover mt-4">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+    <th scope="col">Utilisateur</th>
+<th scope="col">Titre</th>
+<th scope="col">Note</th>
+<th scope="col">commentaire</th>
+<th scope="col"></th>
+<th scope="col"></th>
+</tr>
+</thead>
+<tbody>
+    {% for review in reviews|reverse %}
+      <tr>
+      <th scope="row">{{ review.id }}</th>
+      <td>{{review.userReview }}</td>
+      <td>{{review.title }}</td>
+      <td>{{review.rating }}</td>
+      <td>{{review.content }}</td>
+      <td></td>
+      <td class="text-end">
+
+      {% if not review.isValidated %}
+        <a href="{{ path('backoffice_reviews_validate', {"id": review.id}) }}" class="btn btn-sm btn-success mediavalidate">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Valider
+        </a>
+      {% endif %}
+          <a href="{{ path('backoffice_reviews_delete', {"id": review.id}) }}" class="btn btn-sm btn-danger mediaDelete">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Supprimer
+          </a>
+      </td>
+      </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>        
+
+{% endblock %}

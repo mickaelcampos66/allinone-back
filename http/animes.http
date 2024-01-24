@@ -1,0 +1,30 @@
+### Liste des animes
+GET http://localhost:8000/api/animes
+
+### Détail d'un anime
+GET http://localhost:8000/api/animes/4
+
+### Suppression d'un anime
+DELETE http://localhost:8000/api/animes/3
+
+### Ajout d'un anime
+POST http://localhost:8000/api/animes
+content-type: application/json
+
+{
+    "title": "doraaaaaaaa l'exploratrice",
+    "summary": "Sed ut perspiciatis unde omnis iste natus",   
+    "release_date": 2010,
+    "picture": "aaa.jpg",
+    "created_at": "now",
+    "category": 4
+}
+
+### Modification d'un anime
+PUT http://localhost:8000/api/animes/7
+content-type: application/json
+
+{
+    "title": "aaaaaanbbbbqfqfqzgqz",
+    "updated_at": "now"
+}

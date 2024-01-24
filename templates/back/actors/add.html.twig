@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actor Add{% endblock %}
+
+{% block body %}
+<h1>Ajout d'un acteur</h1>
+    {{ form_start(form) }}
+        {{ form_row(form.lastname) }}
+        {{ form_row(form.firstname) }}
+        {{ form_row(form.nationality) }}
+        {{ form_row(form.picture, {'attr': {'value': 'assets/img/default-image'}}) }}
+        <div class="text-center">
+        <button class="btn btn-primary">Envoyer</button>
+    </div>
+{{ form_end(form) }}
+{% endblock %}

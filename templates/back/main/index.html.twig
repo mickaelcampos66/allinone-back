@@ -1,0 +1,328 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AllinOne - Back-office{% endblock %}
+
+{% block body %}
+
+<h2> Bienvenue dans le Back Office de AllinOne    
+<div class="row mt-5">
+<!-- Début carte catégorie -->
+<div class="col-12 col-md-6 col-lg-6">
+    <div class="card text-white mb-3">
+        <div class="card-header">Liste des films</div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titre</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 1 catégorie -->
+                    {% for movie in movies|reverse|slice(0,5) %}
+                    <tr>
+                        <th scope="row" class="fs-4">{{ movie.id }}</th>
+                        <td class="fs-4">{{ movie.title }}</td>
+                        <td class="text-end">
+                            <a href="{{ path('backoffice_movies_update', {"id": movie.id}) }}" class="btn btn-sm btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifier</a>
+                            <a href="{{ path('backoffice_movies_delete', {"id": movie.id}) }}" class="btn btn-sm btn-danger mediaDelete"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Supprimer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <!--fin catégorie -->
+                </tbody>
+            </table>
+            <div class="d-grid gap-2">
+                <a href="{{ path('backoffice_movies_list')}}" class="btn btn-success">Voir plus</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Début carte catégorie -->
+<div class="col-12 col-md-6 col-lg-6">
+    <div class="card text-white mb-3">
+        <div class="card-header">Liste des Séries</div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titre</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 1 catégorie -->
+                    {% for show in shows|reverse|slice(0,5) %}
+                    <tr>
+                        <th scope="row" class="fs-4">{{ show.id }}</th>
+                        <td class="fs-4">{{ show.title }}</td>
+                        <td class="text-end">
+                            <a href="{{ path('backoffice_shows_update', {"id": show.id}) }}" class="btn btn-sm btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifier</a>
+                            <a href="{{ path('backoffice_shows_delete', {"id": show.id}) }}" class="btn btn-sm btn-danger mediaDelete"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Supprimer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <!--fin catégorie -->
+                </tbody>
+            </table>
+            <div class="d-grid gap-2">
+                <a href="{{ path('backoffice_shows_list')}}" class="btn btn-success">Voir plus</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin carte catégorie -->
+<!-- Début carte catégorie -->
+<div class="col-12 col-md-6 col-lg-6">
+    <div class="card text-white mb-3">
+        <div class="card-header">Liste des Animes</div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titre</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 1 catégorie -->
+                    {% for anime in animes|reverse|slice(0,5) %}
+                    <tr>
+                        <th scope="row" class="fs-4">{{ anime.id }}</th>
+                        <td class="fs-4">{{ anime.title }}</td>
+                        <td class="text-end">
+                            <a href="{{ path('backoffice_animes_update', {"id": anime.id}) }}" class="btn btn-sm btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifier</a>
+                            <a href="{{ path('backoffice_animes_delete', {"id": anime.id}) }}" class="btn btn-sm btn-danger mediaDelete"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Supprimer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <!--fin catégorie -->
+                </tbody>
+            </table>
+            <div class="d-grid gap-2">
+                <a href="{{ path('backoffice_animes_list')}}" class="btn btn-success">Voir plus</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin carte catégorie -->
+<!-- Début carte catégorie -->
+<div class="col-12 col-md-6 col-lg-6">
+    <div class="card text-white mb-3">
+        <div class="card-header">Liste des Mangas</div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titre</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 1 catégorie -->
+                    {% for manga in mangas|reverse|slice(0,5) %}
+                    <tr>
+                        <th scope="row" class="fs-4">{{ manga.id }}</th>
+                        <td class="fs-4">{{ manga.title }}</td>
+                        <td class="text-end">
+                            <a href="{{ path('backoffice_mangas_update', {"id": manga.id}) }}" class="btn btn-sm btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifier</a>
+                            <a href="{{ path('backoffice_mangas_delete', {"id": manga.id}) }}" class="btn btn-sm btn-danger mediaDelete"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Supprimer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <!--fin catégorie -->
+                </tbody>
+            </table>
+            <div class="d-grid gap-2">
+                <a href="{{ path('backoffice_mangas_list')}}" class="btn btn-success">Voir plus</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin carte catégorie -->
+<!-- Début carte catégorie -->
+<div class="col-12 col-md-6 col-lg-6">
+    <div class="card text-white mb-3">
+        <div class="card-header">Liste des Jeux videos</div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titre</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 1 catégorie -->
+                    {% for videogame in videogames|reverse|slice(0,5) %}
+                    <tr>
+                        <th scope="row" class="fs-4">{{ videogame.id }}</th>
+                        <td class="fs-4">{{ videogame.title }}</td>
+                        <td class="text-end">
+                            <a href="{{ path('backoffice_videogames_update', {"id": videogame.id}) }}" class="btn btn-sm btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifier</a>
+                            <a href="{{ path('backoffice_videogames_delete', {"id": videogame.id}) }}" class="btn btn-sm btn-danger mediaDelete"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Supprimer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <!--fin catégorie -->
+                </tbody>
+            </table>
+            <div class="d-grid gap-2">
+                <a href="{{ path('backoffice_videogames_list')}}" class="btn btn-success">Voir plus</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin carte catégorie -->
+<!-- Début carte catégorie -->
+<div class="col-12 col-md-6 col-lg-6">
+    <div class="card text-white mb-3">
+        <div class="card-header">Liste des Livres</div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titre</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 1 catégorie -->
+                    {% for book in books|reverse|slice(0,5) %}
+                    <tr>
+                        <th scope="row" class="fs-4">{{ book.id }}</th>
+                        <td class="fs-4">{{ book.title }}</td>
+                        <td class="text-end">
+                            <a href="{{ path('backoffice_books_update', {"id": book.id}) }}" class="btn btn-sm btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifier</a>
+                            <a href="{{ path('backoffice_books_delete', {"id": book.id}) }}" class="btn btn-sm btn-danger mediaDelete"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Supprimer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <!--fin catégorie -->
+                </tbody>
+            </table>
+            <div class="d-grid gap-2">
+                <a href="{{ path('backoffice_books_list')}}" class="btn btn-success">Voir plus</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin carte catégorie -->
+<!-- Début carte catégorie -->
+<div class="col-12 col-md-6 col-lg-6">
+    <div class="card text-white mb-3">
+        <div class="card-header">Liste des Acteurs</div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prénom</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 1 catégorie -->
+                    {% for actor in actors|reverse|slice(0,5) %}
+                    <tr>
+                        <th scope="row" class="fs-4">{{ actor.id }}</th>
+                        <td class="fs-4">{{ actor.lastname }}</td>
+                        <td class="fs-4">{{ actor.firstname }}</td>
+                        <td class="text-end">
+                            <a href="{{ path('backoffice_actors_update', {"id": actor.id}) }}" class="btn btn-sm btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifier</a>
+                            <a href="{{ path('backoffice_actors_delete', {"id": actor.id}) }}" class="btn btn-sm btn-danger mediaDelete"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Supprimer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <!--fin catégorie -->
+                </tbody>
+            </table>
+            <div class="d-grid gap-2">
+                <a href="{{ path('backoffice_actors_list')}}" class="btn btn-success">Voir plus</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin carte catégorie -->
+<!-- Début carte catégorie -->
+<div class="col-12 col-md-6 col-lg-6">
+    <div class="card text-white mb-3">
+        <div class="card-header">Liste des Personnages</div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Role</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 1 catégorie -->
+                    {% for character in characters|reverse|slice(0,5) %}
+                    <tr>
+                        <th scope="row" class="fs-4">{{ character.id }}</th>
+                        <td class="fs-4">{{ character.role }}</td>
+                        <td class="text-end">
+                            <a href="{{ path('backoffice_characters_update', {"id": character.id}) }}" class="btn btn-sm btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifier</a>
+                            <a href="{{ path('backoffice_characters_delete', {"id": character.id}) }}" class="btn btn-sm btn-danger mediaDelete"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Supprimer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <!--fin catégorie -->
+                </tbody>
+            </table>
+            <div class="d-grid gap-2">
+                <a href="{{ path('backoffice_characters_list')}}" class="btn btn-success">Voir plus</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin carte catégorie -->
+<!-- Début carte catégorie -->
+<div class="col-12 col-md-6 col-lg-6">
+    <div class="card text-white mb-3">
+        <div class="card-header">Liste des Auteurs</div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nom complet</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 1 catégorie -->
+                    {% for author in authors|reverse|slice(0,5) %}
+                    <tr>
+                        <th scope="row" class="fs-4">{{ author.id }}</th>
+                        <td class="fs-4">{{ author.fullname }}</td>
+                        <td class="text-end">
+                            <a href="{{ path('backoffice_authors_update', {"id": author.id}) }}" class="btn btn-sm btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifier</a>
+                            <a href="{{ path('backoffice_authors_delete', {"id": author.id}) }}" class="btn btn-sm btn-danger mediaDelete"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Supprimer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <!--fin catégorie -->
+                </tbody>
+            </table>
+            <div class="d-grid gap-2">
+                <a href="{{ path('backoffice_authors_list')}}" class="btn btn-success">Voir plus</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin carte catégorie -->
+</div>
+
+{% endblock %}
+    

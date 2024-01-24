@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actor Update{% endblock %}
+
+{% block body %}
+<h1>Modification d'un acteur</h1>
+    {{ form_start(form) }}
+        {{ form_row(form.lastname) }}
+        {{ form_row(form.firstname) }}
+        {{ form_row(form.nationality) }}
+        {{ form_row(form.picture)}}
+        <div class="text-center">
+        <button class="btn btn-primary">Envoyer</button>
+    </div>
+{{ form_end(form) }}
+{% endblock %}

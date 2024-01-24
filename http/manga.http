@@ -1,0 +1,30 @@
+### Liste des mangas
+GET http://localhost:8000/api/mangas
+
+### Détail d'un manga
+GET http://localhost:8000/api/mangas/12
+
+### Suppression d'un manga
+DELETE http://localhost:8000/api/mangas/3
+
+### Ajout d'un manga
+POST http://localhost:8000/api/mangas
+content-type: application/json
+
+{
+    "title": "doraaaaaaaa l'exploratrice",
+    "summary": "Sed ut perspiciatis unde omnis iste natus",   
+    "release_date": 2010,
+    "picture": "aaa.jpg",
+    "created_at": "now",
+    "category": 3
+}
+
+### Modification d'un anime
+PUT http://localhost:8000/api/mangas/12
+content-type: application/json
+
+{
+    "title": "aaaaaanbbbbqfqfqzgqz",
+    "updated_at": "now"
+}

@@ -1,0 +1,31 @@
+### Liste des movies
+GET http://localhost:8000/api/movies
+
+### Détail d'un film
+GET http://localhost:8000/api/movies/25
+
+### Suppression d'un film
+DELETE http://localhost:8000/api/movies/25
+
+### Ajout d'un film
+POST http://localhost:8000/api/movies/create
+content-type: application/json
+
+{
+    "title": "Bienvenue chez les chti",
+    "summary": "Sed ut perspiciatis unde omnis iste natus",   
+    "release_date": 2005,
+    "picture": "troll.jpg",
+    "created_at": "now",
+    "category": 1
+
+}
+
+### Modification d'un film
+PUT http://localhost:8000/api/movies/1
+content-type: application/json
+
+{
+    "title": "Vendetta",
+    "updated_at": "now"
+}

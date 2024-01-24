@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AllinOne - Listing des acteurs{% endblock %}
+
+{% block body %}
+
+<h2>Liste des acteurs</h2>
+<div class="d-flex justify-content-end">
+  <a class="btn btn-primary" href="{{ path('backoffice_actors_add') }}">Ajouter</a>
+</div>
+  <table class="table table-hover mt-4">
+  <thead>
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prénom</th>
+          <th scope="col">Nationalité</th>
+          <th scope="col"></th>
+      </tr>
+  </thead>
+<tbody>
+  {% for actor in actors|sort((a, b) => a.lastname <=> b.lastname) %}
+      <tr>
+      <th scope="row">{{ actor.id }}</th>
+      <td>{{actor.lastname }}</td>
+      <td>{{actor.firstname }}</td>
+      <td>{{ actor.nationality}}</td>
+      <td class="text-end">
+          <a href="{{ path('backoffice_actors_update', {"id": actor.id}) }}" class="btn btn-sm btn-warning">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifier
+          </a>
+          <a href="{{ path('backoffice_actors_delete', {"id": actor.id}) }}" class="btn btn-sm btn-danger mediaDelete">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Supprimer
+          </a>
+      </td>
+      </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>        
+
+{% endblock %}

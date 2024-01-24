@@ -1,0 +1,81 @@
+body, .card-body{
+
+    background-color: #2A2929;
+    color: #EFF6EE;
+}
+
+.logo{
+
+    color: #fecc0c;
+    font-weight: 800;
+}
+
+.logo:hover{
+    color: #fecc0c;
+}
+
+.navbar {
+
+    background-color: #273043;
+}
+
+.nav-item a{
+
+    color: #EFF6EE ;
+}
+.nav-item a:hover{
+    color: #fecc0c ;
+}
+
+.navbar-toggler-icon{
+
+    color: #EFF6EE;
+}
+th {
+
+    color: #fecc0c;
+}
+
+td {
+    color: #EFF6EE ;
+
+}
+
+.card-header, .dropdown-menu {
+
+    background-color: #273043;
+}
+
+.dropdown-item{
+
+    background-color: #273043;
+}
+
+.dropdown-item:hover{
+
+    background-color: #273043;
+}
+
+.dropdown a{
+
+    color: #EFF6EE;
+}
+
+@media screen and (min-width: 1400px){
+
+    .dropdown{
+
+        margin-right: 20px;
+    }
+
+    #navbarDropdown{
+
+        margin-right: 50px;
+    }
+
+}
+
+.nav-link.active{
+
+    color: #fecc0c;
+}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Author Update{% endblock %}
+
+{% block body %}
+<h1>Modification d'un auteur</h1>
+    {{ form_start(form) }}
+        {{ form_row(form.fullname) }}
+        {{ form_row(form.alias) }}
+        {{ form_row(form.position) }}
+        <div class="text-center">
+        <button class="btn btn-primary">Envoyer</button>
+    </div>
+{{ form_end(form) }}
+{% endblock %}

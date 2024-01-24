@@ -1,0 +1,30 @@
+### Liste des jeux vidéo
+GET http://localhost:8000/api/videogames
+
+### Détail d'un jeu vidéo
+GET http://localhost:8000/api/videogames/4
+
+### Suppression d'un jeu vidéo
+DELETE http://localhost:8000/api/videogames/3
+
+### Ajout d'un jeu vidéo
+POST http://localhost:8000/api/videogames
+content-type: application/json
+
+{
+    "title": "doraaaaaaaa l'exploratrice",
+    "summary": "Sed ut perspiciatis unde omnis iste natus",   
+    "release_date": 2010,
+    "picture": "aaa.jpg",
+    "created_at": "now",
+    "category": 5
+}
+
+### Modification d'un jeu vidéo
+PUT http://localhost:8000/api/videogames/13
+content-type: application/json
+
+{
+    "title": "aaaaaanbbbbqfqfqzgqz",
+    "updated_at": "now"
+}

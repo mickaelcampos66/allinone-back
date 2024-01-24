@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Manga Add{% endblock %}
+
+{% block body %}
+<h1>Ajout d'un manga</h1>
+    {{ form_start(form) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.summary) }}
+        {{ form_row(form.synopsis) }}
+        {{ form_row(form.release_date) }}
+        {{ form_row(form.genres) }}
+        {{ form_row(form.picture, {'attr': {'value': 'assets/img/default-image'}}) }}
+        {{ form_row(form.authors) }}
+        {{ form_row(form.characters) }}
+        <div class="text-center">
+        <button class="btn btn-primary">Envoyer</button>
+    </div>
+{{ form_end(form) }}
+{% endblock %}

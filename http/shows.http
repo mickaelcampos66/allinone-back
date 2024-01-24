@@ -1,0 +1,30 @@
+### Liste des shows
+GET http://localhost:8000/api/shows
+
+### Détail d'une série
+GET http://localhost:8000/api/shows/4
+
+### Suppression d'une série
+DELETE http://localhost:8000/api/shows/3
+
+### Ajout d'une série
+POST http://localhost:8000/api/shows
+content-type: application/json
+
+{
+    "title": "doraaaaaaaa l'exploratrice",
+    "summary": "Sed ut perspiciatis unde omnis iste natus",   
+    "release_date": 2010,
+    "picture": "aaa.jpg",
+    "created_at": "now",
+    "category": 2
+}
+
+### Modification d'une série
+PUT http://localhost:8000/api/shows/7
+content-type: application/json
+
+{
+    "title": "aaaaaanbbbbqfqfqzgqz",
+    "updated_at": "now"
+}

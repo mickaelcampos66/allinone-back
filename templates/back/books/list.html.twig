@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AllinOne - Listing des Livres{% endblock %}
+
+{% block body %}
+
+<h2>Liste des Livres</h2>
+<div class="d-flex justify-content-end">
+  <a class="btn btn-primary" href="{{ path('backoffice_books_add') }}">Ajouter</a>
+</div>
+  <table class="table table-hover mt-4">
+  <thead>
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Titre</th>
+          <th scope="col">Date de sortie</th>
+          <th scope="col">Sommaire</th>
+          <th scope="col"></th>
+      </tr>
+  </thead>
+<tbody>
+  {% for book in books|reverse %}
+      <tr>
+      <th scope="row">{{ book.id }}</th>
+      <td>{{book.title }}</td>
+      <td>{{book.releaseDate }}</td>
+      <td>{{book.summary}}</td>
+      <td class="text-end">
+          <a href="{{ path('backoffice_books_update', {"id": book.id}) }}" class="btn btn-sm btn-warning">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifier
+          </a>
+          <a href="{{ path('backoffice_books_delete', {"id": book.id}) }}" class="btn btn-sm btn-danger mediaDelete">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Supprimer
+          </a>
+      </td>
+      </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>        
+
+{% endblock %}

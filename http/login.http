@@ -1,0 +1,27 @@
+# POST https://allinone.yannicksendrey.dev/index.php/api/login
+# Content-type: application/json
+
+# {
+#   "email":"mickael",
+#   "password":"test"
+
+# }
+
+# ### Liste des movies admin
+# GET https://allinone.yannicksendrey.dev/index.php/backoffice/users/list
+# Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTkzNjYwNjYsImV4cCI6MTY5OTM2OTY2Niwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6Im1pY2thZWwifQ.XKE0xRk4vCl-c67U2g9TDDBvyoesiHx6ZrxLdvhRfN94I62D9XZUCX8Owa0jOto0So84lGA-ThZZM4PpwZ0MIRbl-OBhwd3v3KPGYRxMdQMv5_Pu3QPC-abkoH0fpTrGqTWe7i5YlgVJOnK9iKnDeE0fOsVRtKlieudBvuny66IeKVuJrmFH7B9udnWy6bdVwo6Kfnp6ERdSS0XT9Wp9DGMTHkLIyEiUGjoraobkrPZZFpVkme2xCojOIPHGQZCbBczM2wyJvDODdwMWO0iOq1VrsL6pYMTi0IbpOhKr34ggt-ZoU1f3zw_v6jJ9R0HVFKymoOxt34XAGLZsxmcTHQ
+
+### test
+POST http://localhost:8000/api/login
+Content-type: application/json
+
+{
+  "email":"user@user.fr",
+  "password":"allinone"
+
+}
+
+
+### Liste des movies admin
+GET http://localhost:8000/backoffice
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTkzNzQzMzAsImV4cCI6MTY5OTM3NzkzMCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlciJ9.Y00NbYU6uBoSR383ScR8HJiUgk_VScxGYlPQ7JPzXbxNyobO8xB6BC4MUnCFiMT9pVjeYWH6wOeOgiZwg0Y6bWggmGz8DYkDZXNlvmBlJe8GpRms4Djw7_jI3IUtZHIRWSuIeaxTg3GSAtOiwU2CSheMtCWw-EJqUGF6l85RT_fF72Ft_qd3EwGxwDHUT9Ys2MiUvgbEPFSXjFgpVWWSIcmnv4UE5ibG1_lDjKnMDrIItQX6wiqf73RdwqXRU-ssRSrJGP-QVrYAALnyrAM8_Ierse6zPN-ygiJ3DVUBzqwY7BuXPxTFXsH7rm1KXOrxVIcQRX55mRj7Htu5XCGI5g

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Season Update{% endblock %}
+
+{% block body %}
+<h1>Modification d'une saison</h1>
+    {{ form_start(form) }}
+        {{ form_row(form.season_number) }}
+        {{ form_row(form.nb_episodes) }}
+        {{ form_row(form.media) }}
+        <div class="text-center">
+        <button class="btn btn-primary">Envoyer</button>
+    </div>
+{{ form_end(form) }}
+{% endblock %}

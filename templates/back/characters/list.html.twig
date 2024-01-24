@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AllinOne - Listing des personnages{% endblock %}
+
+{% block body %}
+
+<h2>Liste des personnages</h2>
+<div class="d-flex justify-content-end">
+  <a class="btn btn-primary" href="{{ path('backoffice_characters_add') }}">Ajouter</a>
+</div>
+  <table class="table table-hover mt-4">
+  <thead>
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Role</th>
+          <th scope="col"></th>
+      </tr>
+  </thead>
+<tbody>
+  {% for character in characters|sort((a, b) => a.role <=> b.role) %}
+      <tr>
+      <th scope="row">{{ character.id }}</th>
+      <td>{{character.role }}</td>
+      <td class="text-end">
+          <a href="{{ path('backoffice_characters_update', {"id": character.id}) }}" class="btn btn-sm btn-warning">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifier
+          </a>
+          <a href="{{ path('backoffice_characters_delete', {"id": character.id}) }}" class="btn btn-sm btn-danger mediaDelete">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Supprimer
+          </a>
+      </td>
+      </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>        
+
+{% endblock %}
