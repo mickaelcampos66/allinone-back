@@ -3,7 +3,7 @@
 ## Récupération du repository
 
 ```sh
-git clone git@github.com:O-clock-Zinc/projet-03-allinone-back.git
+git clone path/project
 ```
 
 ## Se déplacer dans le dossier du projet 
@@ -36,7 +36,7 @@ sudo nano .env.local
 
 ```php
     APP_ENV=dev
-    DATABASE_URL="mysql://explorateur:Ereul9Aeng@localhost:3306/allinone?serverVersion=10.3.25-MariaDBB&charset=utf8mb4"
+    DATABASE_URL="mysql://User:Password@localhost:3306/allinone?serverVersion=10.3.25-MariaDBB&charset=utf8mb4"
     JWT_PASSPHRASE=allinone
 ```
 
@@ -64,13 +64,13 @@ bin/console doctrine:migration:migrate
 ### Injection des données SQL dans la table
 
 ```sh
-mysql -uexplorateur -p allinone < public/docs/data.sql
+mysql -uUser -p allinone < public/docs/data.sql
 ```
 
 **Si il y a des problèmes avec les tables dans la BDD, il faudra supprimer toutes les tables directement dans Adminer et récuperer les données avec le fichier dataTables.sql**
 
 ```sh
-mysql -uexplorateur -p allinone < public/docs/dataTables.sql
+mysql -uUser -p allinone < public/docs/dataTables.sql
 ```
 
 ### Generation de nouvelles clés pour le token JWT
