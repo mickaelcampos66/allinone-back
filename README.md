@@ -9,7 +9,7 @@ git clone path/project
 ## Se déplacer dans le dossier du projet 
 
 ```sh 
-cd projet-03-allinone-back/
+cd allinone-back/
 ```
 
 ## Installation des dépendances
